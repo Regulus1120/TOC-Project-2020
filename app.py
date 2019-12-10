@@ -14,6 +14,7 @@ load_dotenv()
 
 
 machine = TocMachine(
+	#for test
     states=["user", "state1", "state2"],
     transitions=[
         {
