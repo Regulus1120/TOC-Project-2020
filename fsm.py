@@ -41,7 +41,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_event_16_18(self, event):
         text = event.message.text
-        return text.lower() == "繼續" && ((year == 16) || (year == 17))
+        return (text.lower() == "繼續") && ((year == 16) || (year == 17))
     
     def on_enter_event_16_18(self, event):
         reply_token = event.reply_token
