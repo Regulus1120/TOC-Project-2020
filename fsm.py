@@ -41,7 +41,6 @@ class TocMachine(GraphMachine):
     def on_enter_16_18(self, event):
         reply_token = event.reply_token
         f = open("gamedata.txt", "r")
-        send_text_message(reply_token, "hello")
         send_text_message(reply_token, "西元：      " + f.readline() +
                                        "綠營支持者：" + f.readline() +
                                        "綠營投票率：" + f.readline() +
@@ -258,6 +257,7 @@ class TocMachine(GraphMachine):
         elif year == 17:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
         f.writeline(year)
         f.writeline(green_people)
         f.writeline(green_rate)
@@ -283,6 +283,7 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
         f.writeline(year)
         f.writeline(green_people)
         f.writeline(green_rate)
@@ -308,6 +309,7 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
         f.writeline(year)
         f.writeline(green_people)
         f.writeline(green_rate)
@@ -333,6 +335,7 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
         f.writeline(year)
         f.writeline(green_people)
         f.writeline(green_rate)
@@ -358,6 +361,7 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
         f.writeline(year)
         f.writeline(green_people)
         f.writeline(green_rate)
