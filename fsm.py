@@ -38,13 +38,14 @@ class TocMachine(GraphMachine):
                                        "綠營投票率：" + f.readline() +
                                        "藍營支持者：" + f.readline() +
                                        "藍營投票率：" + f.readline())
+        f.close()
 
     def is_going_to_event_16_18(self, event):
         text = event.message.text
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續") && ((year == 16) || (year == 17))
+        return (text.lower() == "繼續")# && ((year == 16) || (year == 17))
 
     def on_enter_event_16_18(self, event):
         reply_token = event.reply_token
