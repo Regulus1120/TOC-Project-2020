@@ -83,7 +83,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_fish_win(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', r+)
+        f = open('gamedata.txt', 'r+')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
