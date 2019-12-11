@@ -25,9 +25,9 @@ class TocMachine(GraphMachine):
 
     def on_enter_background(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
-        f.write('16\n2000000\n40\n3000000\n25')
-        f.close()
+        #f = open('gamedata.txt', 'w')
+        #f.write('16\n2000000\n40\n3000000\n25')
+        #f.close()
         send_text_message(reply_token, "2016年，蔡英文拿下了總統大選的勝利，成為了台灣史上第一位女總統。但為了競選連任，她還得更加努力才行。")
 
     def on_enter_description(self, event):
@@ -40,7 +40,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_to_16_18(self, event):
         reply_token = event.reply_token
-        f = open("gamedata.txt", "r")
+        f = open('gamedata.txt', 'r')
         year = f.readline()
         send_text_message(reply_token, year)
         # send_text_message(reply_token, "西元：      " + f.readline() +
