@@ -41,7 +41,7 @@ class TocMachine(GraphMachine):
     def on_enter_16_18(self, event):
         reply_token = event.reply_token
         f = open("gamedata.txt", "r")
-        send_text_message(reply_token, "西元：          20" + f.readline() +
+        send_text_message(reply_token, "西元：           20" + f.readline() +
                                        "綠營支持者：" + f.readline() +
                                        "綠營投票率：" + f.readline() +
                                        "藍營支持者：" + f.readline() +
@@ -92,7 +92,7 @@ class TocMachine(GraphMachine):
     def on_enter_18_20_win(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "西元：      " + f.readline() +
+        send_text_message(reply_token, "西元：           20" + f.readline() +
                                        "綠營支持者：" + f.readline() +
                                        "綠營投票率：" + f.readline() +
                                        "藍營支持者：" + f.readline() +
@@ -125,7 +125,7 @@ class TocMachine(GraphMachine):
     def on_enter_battle_win(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "選舉開始")
+        send_text_message(reply_token, "2020總統大選正式開始，究竟誰能獲得最後的勝利呢？")
         
     def is_going_to_fish_lose(self, event):
         text = event.message.text
@@ -133,7 +133,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_fish_lose(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "韓國瑜敗選")
+        send_text_message(reply_token, "韓國瑜敗選了，但這對於藍綠兩黨而言都是一件再正常不過的事情。")
 
     def is_going_to_18_20_lose(self, event):
         text = event.message.text
@@ -142,7 +142,7 @@ class TocMachine(GraphMachine):
     def on_enter_18_20_lose(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "西元：      " + f.readline() +
+        send_text_message(reply_token, "西元：           20" + f.readline() +
                                        "綠營支持者：" + f.readline() +
                                        "綠營投票率：" + f.readline() +
                                        "藍營支持者：" + f.readline() +
@@ -168,7 +168,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_battle_lose(self, event):
         text = event.message.text
-        f = open('gamedata', 'r')
+        f = open('gamedat.txt', 'r')
         year = int(f.readline())
         f.close()
         return (text.lower() == "繼續") and (year == 20)
