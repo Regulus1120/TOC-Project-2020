@@ -44,7 +44,7 @@ class TocMachine(GraphMachine):
         year = f.read()
         print("!!"+year)
         f.close()
-        send_text_message(reply_token, year)
+        send_text_message(reply_token, "hello")
         # send_text_message(reply_token, "西元：      " + f.readline() +
         #                               "綠營支持者：" + f.readline() +
         #                               "綠營投票率：" + f.readline() +
@@ -234,6 +234,13 @@ class TocMachine(GraphMachine):
         elif year == 17:
             send_text_gessage(reply_token, "")
         year += 1
+        f = open('gamedata.txt', 'r')
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
 
     def is_going_to_no_event_16_18(self, event):
         text = event.message.text
@@ -253,7 +260,13 @@ class TocMachine(GraphMachine):
         elif year == 17:
             send_text_gessage(reply_token, "")
         year += 1
-        
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
+
     def is_going_to_yes_event_18_20_win(self, event):
         text = event.message.text
         return text.lower() == "是"
@@ -272,6 +285,12 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
 
     def is_going_to_no_event_18_20_win(self, event):
         text = event.message.text
@@ -291,6 +310,12 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
 
     def is_going_to_yes_event_18_20_lose(self, event):
         text = event.message.text
@@ -310,6 +335,12 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
 
     def is_going_to_no_event_18_20_lose(self, event):
         text = event.message.text
@@ -329,4 +360,10 @@ class TocMachine(GraphMachine):
         elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
+        f.writeline(year)
+        f.writeline(green_people)
+        f.writeline(green_rate)
+        f.writeline(blue_people)
+        f.writeline(blue_rate)
+        f.close()
 
