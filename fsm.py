@@ -75,7 +75,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_kaohsiung(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "高雄市長選舉到了，儘管陳其邁")
+        send_text_message(reply_token, "高雄市長選舉到了，儘管陳其邁的對手看起來像個跳梁小丑，但其邁仍然沒有必勝的把握，黨中央是否要發動動員令來幫助其邁呢？")
 
     def is_going_to_fish_win(self, event):
         text = event.message.text
@@ -229,7 +229,7 @@ class TocMachine(GraphMachine):
         if year == 16:
             send_text_message(reply_token, "yes")
         elif year == 17:
-            send_text_gessage(reply_token, "no")
+            send_text_gessage(reply_token, "yes")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -252,10 +252,10 @@ class TocMachine(GraphMachine):
         if year == 16:
             send_text_message(reply_token, "yes")
         elif year == 17:
-            send_text_gessage(reply_token, "no")
+            send_text_gessage(reply_token, "yes")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
     def is_going_to_yes_event_18_20_win(self, event):
@@ -277,7 +277,7 @@ class TocMachine(GraphMachine):
             send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
     def is_going_to_no_event_18_20_win(self, event):
@@ -299,7 +299,7 @@ class TocMachine(GraphMachine):
             send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
     def is_going_to_yes_event_18_20_lose(self, event):
@@ -321,7 +321,7 @@ class TocMachine(GraphMachine):
             send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
     def is_going_to_no_event_18_20_lose(self, event):
@@ -343,6 +343,6 @@ class TocMachine(GraphMachine):
             send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
