@@ -32,10 +32,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_description(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "遊戲目的：幫助蔡英文贏得2020總統大選\n
-                                        遊玩方式：\n
-                                        在面臨選擇時輸入是/否\n
-                                        其餘時候輸入繼續")
+        send_text_message(reply_token, "遊戲目的：幫助蔡英文贏得2020總統大選\n遊玩方式：\n在面臨選擇時輸入是/否\n其餘時候輸入繼續")
 
     def is_going_to_16_18(self, event):
         text = event.message.text
@@ -67,7 +64,7 @@ class TocMachine(GraphMachine):
         if year == 16:
             send_text_message(reply_token, "朝野和全國上下正為了一例一休吵得不可開交，是否要繼續推動一例一休呢？")
         elif year == 17:
-            send_text_message(reply_token, "反年改團體正走上街頭進行抗爭，")
+            send_text_message(reply_token, "反年改團體正走上街頭進行抗爭，情況愈演愈烈，警民衝突隨時可能爆發，是否要向反年改團體妥協呢？")
 
     def is_going_to_kaohsiung(self, event):
         text = event.message.text
@@ -78,7 +75,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_kaohsiung(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "高雄市長選舉")
+        send_text_message(reply_token, "高雄市長選舉到了，儘管陳其邁")
 
     def is_going_to_fish_win(self, event):
         text = event.message.text
