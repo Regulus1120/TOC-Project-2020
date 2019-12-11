@@ -32,7 +32,10 @@ class TocMachine(GraphMachine):
 
     def on_enter_description(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "遊戲說明")
+        send_text_message(reply_token, "遊戲目的：幫助蔡英文贏得2020總統大選\n
+                                        遊玩方式：\n
+                                        在面臨選擇時輸入是/否\n
+                                        其餘時候輸入繼續"
 
     def is_going_to_16_18(self, event):
         text = event.message.text
@@ -41,7 +44,7 @@ class TocMachine(GraphMachine):
     def on_enter_16_18(self, event):
         reply_token = event.reply_token
         f = open("gamedata.txt", "r")
-        send_text_message(reply_token, "西元：      " + f.readline() +
+        send_text_message(reply_token, "西元：          20" + f.readline() +
                                        "綠營支持者：" + f.readline() +
                                        "綠營投票率：" + f.readline() +
                                        "藍營支持者：" + f.readline() +
@@ -232,7 +235,7 @@ class TocMachine(GraphMachine):
             send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
-        f.write(year + "\n" + green_people + "\n" + green_rate + "\n" + blue_people + "\n" + blue_rate)
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         f.close()
 
     def is_going_to_no_event_16_18(self, event):
