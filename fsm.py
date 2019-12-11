@@ -42,21 +42,22 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         f = open("gamedata.txt", "r")
         year = f.read()
-        print(year)
+        print("!!"+year)
+        f.close()
         send_text_message(reply_token, year)
         # send_text_message(reply_token, "西元：      " + f.readline() +
         #                               "綠營支持者：" + f.readline() +
         #                               "綠營投票率：" + f.readline() +
         #                               "藍營支持者：" + f.readline() +
         #                               "藍營投票率：" + f.readline())
-        f.close()
 
     def is_going_to_event_16_18(self, event):
         text = event.message.text
         f = open('gamedata.txt', 'r')
-        year = int(f.readline())
+        year = f.readline()
+        y = year.split("\n")
         f.close()
-        return (text.lower() == "繼續") and ((year == 16) or (year == 17))
+        return (text.lower() == "繼續") and ((y[0] == "16") or (y[0] == "17"))
 
     def on_enter_event_16_18(self, event):
         reply_token = event.reply_token
