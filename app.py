@@ -18,7 +18,7 @@ machine = TocMachine(
         "start", "description", "background", "16_18", "kaohsiung", 
         "18_20_win", "battle_win", "fish_win",
         "18_20_lose", "battle_lose", "fish_lose",
-        1"event_16_18", "event_18_20_win", "event_18_20_lose",
+        "event_16_18", "event_18_20_win", "event_18_20_lose",
         "result_win", "result_lose","yes_event_16_18", "no_event_16_18",
         "yes_event_18_20_win", "no_event_18_20_win",
         "yes_event_18_20_lose", "no_event_18_20_lose"
