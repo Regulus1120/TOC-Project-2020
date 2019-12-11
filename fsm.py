@@ -52,9 +52,9 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        if year == 16
+        if year == 16:
             send_text_message(reply_token, "一例一休")
-        else if year == 17
+        else if year == 17:
             send_text_message(reply_token, "反年改")
 
     def is_going_to_kaohsiung(self, event):
@@ -101,9 +101,9 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
-        if year == 18
+        if year == 18:
             send_text_message(reply_token, "韓國瑜請假")
-        else if year == 19
+        else if year == 19:
             send_text_message(reply_token, "香港")
 
     def is_going_to_battle_win(self, event):
@@ -152,9 +152,9 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        if year == 18
+        if year == 18:
             send_text_message(reply_token, "韓國瑜演講")
-        else if year == 19
+        else if year == 19:
             send_text_message(reply_token, "香港")
 
     def is_going_to_battle_lose(self, event):
@@ -217,9 +217,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 16
+        if year == 16:
             send_text_message(reply_token, "")
-        else if year == 17
+        else if year == 17:
             send_text_gessage(reply_token, "")
         year += 1
 
@@ -236,9 +236,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 16
+        if year == 16:
             send_text_message(reply_token, "")
-        else if year == 17
+        else if year == 17:
             send_text_gessage(reply_token, "")
         year += 1
         
@@ -274,9 +274,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 16
+        if year == 18:
             send_text_message(reply_token, "")
-        else if year == 17
+        else if year == 19:
             send_text_gessage(reply_token, "")
         year += 1
 
@@ -293,9 +293,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 18
+        if year == 18:
             send_text_message(reply_token, "")
-        else if year == 19
+        else if year == 19:
             send_text_gessage(reply_token, "")
         year += 1
 
@@ -312,9 +312,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 18
+        if year == 18:
             send_text_message(reply_token, "")
-        else if year == 19
+        else if year == 19:
             send_text_gessage(reply_token, "")
         year += 1
 
