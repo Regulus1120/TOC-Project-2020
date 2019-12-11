@@ -1,0 +1,83 @@
+
+- Usage
+Initial state is "start"
+Every time make choose may change "green_people", "green_rate", "blue_people", "blue_rate", which are stored in gamedata.txt
+	- start
+		- input: "開始遊戲"
+			- go to "background"
+		- input: "遊戲說明"
+			- go to "description"
+	- description
+		- input: "開始遊戲"
+			- go to "background"
+	- background
+		- input: "繼續"
+			- go to "16_18"
+	- 16_18
+		- input: "繼續"
+			- go to "event_16_18" (if year == 2016 || year == 2017)
+			- go to "kaohsiung" (if year == 2018)
+	- kaohsiung
+		- input: "是"
+			- go to "fish_lose"
+		- input: "否"
+			- go to "fish_win"
+	- fish_win
+		- input: "繼續"
+			- go to "18_20_win"
+	- fish_lose
+		- input: "繼續"
+			- go to "18_20_lose"
+	- 18_20_win
+		- input: "繼續"
+			- go to "event_18_20_win" (if year == 2018 || year == 2019)
+			- go to "battle_win" (if year == 2020)
+	- 18_20_lose
+		- input: "繼續"
+			- go to "event_18_20_lose" (if year == 2018 || year == 2019)
+			- go to "battle_lose" (if year == 2020)
+	- battle_win
+		- input: "繼續"
+			- base on "green_people", "green_rate", "blue_people", "blue_rate" to decide who win 
+	- battle_lose
+		- input: "繼續"
+			- base on "green_people", "green_rate", "blue_people", "blue_rate" to decide who win
+	- result_win
+		- show who win
+		- auto go back to "start"
+	- result_lose
+		- show who win
+		- auto go back to "start"
+	- event_16_18
+		- input: "是"
+			- go to "yes_event_16_18"
+		- input: "否"
+			- go to "no_event_16_18"
+	- yes_event_16_18
+		- input: "繼續"
+			- go to "16_18"
+	- no_event_16_18
+		- input: "繼續"
+			- go to "16_18"
+	- event_18_20_win
+		- input: "是"
+			- go to "yes_event_18_20_win"
+		- input: "否"
+			- go to "yes_event_18_20_lose"
+	- yes_event_18_20_win
+		- input: "繼續"
+			- go to "18_20_win"
+	- no_event_18_20_win
+		- input: "繼續"
+			- go to "18_20_win"
+	- event_18_20_lose
+		- input: "是"
+			- go to "yes_18_20_lose"
+		- input: "否"
+			- go to "no_18_20_lose"
+	- yes_event_18_20_lose
+		- input: "繼續"
+			- go to "18_20_lose"
+	- no_event_18_20_lose
+		- input: "繼續"
+			- go to "18_20_lose"
