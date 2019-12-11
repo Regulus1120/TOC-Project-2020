@@ -40,8 +40,9 @@ class TocMachine(GraphMachine):
 
     def on_enter_to_16_18(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'r')
+        f = open("gamedata.txt", "r")
         year = f.read()
+        print(year)
         send_text_message(reply_token, year)
         # send_text_message(reply_token, "西元：      " + f.readline() +
         #                               "綠營支持者：" + f.readline() +
