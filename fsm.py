@@ -162,7 +162,7 @@ class TocMachine(GraphMachine):
         year = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "韓國瑜演講")
+            send_text_message(reply_token, "敗選的韓國瑜發表了演說，他的死忠支持者人數逐日攀升，看來是打算")
         elif year == 19:
             send_text_message(reply_token, "香港")
 
@@ -182,10 +182,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         f = open('gamedata.txt', 'r')
         year = int(readline())
-        green_people = int(readline())
-        green_rate = int(readline())
-        blue_people = int(readline())
-        blue_rate = int(readline())
+        green_people = int(f.readline())
+        green_rate = int(f.readline())
+        blue_people = int(f.readline())
+        blue_rate = int(f.readline())
         f.close()
         return (text.lower() == "選舉結果") and ((green_people * green_rate)) > (blue_people * blue_rate)
 
@@ -200,10 +200,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         f = open('gamedata.txt', 'r')
         year = int(readline())
-        green_people = int(readline())
-        green_rate = int(readline())
-        blue_people = int(readline())
-        blue_rate = int(readline())
+        green_people = int(f.readline())
+        green_rate = int(f.readline())
+        blue_people = int(f.readline())
+        blue_rate = int(f.readline())
         f.close()
         return (text.lower() == "選舉結果") and ((green_people * green_rate)) < (blue_people * blue_rate)
 
