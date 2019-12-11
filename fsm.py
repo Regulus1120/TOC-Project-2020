@@ -111,9 +111,9 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         if year == 18:
-            send_text_message(reply_token, "韓國瑜請假")
+            send_text_message(reply_token, "韓國瑜請假參選總統，並向蔡英文發出邀請，要蔡英文和他一起請假參選，是否要接受他的邀請呢？")
         elif year == 19:
-            send_text_message(reply_token, "香港")
+            send_text_message(reply_token, "香港的警民衝突愈加嚴重，是否要在公開場合發表支持香港的言論呢？")
 
     def is_going_to_battle_win(self, event):
         text = event.message.text
@@ -229,7 +229,7 @@ class TocMachine(GraphMachine):
         if year == 16:
             send_text_message(reply_token, "yes")
         elif year == 17:
-            send_text_gessage(reply_token, "yes")
+            send_text_message(reply_token, "yes")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -251,7 +251,7 @@ class TocMachine(GraphMachine):
         if year == 16:
             send_text_message(reply_token, "no")
         elif year == 17:
-            send_text_gessage(reply_token, "no")
+            send_text_message(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -273,7 +273,7 @@ class TocMachine(GraphMachine):
         if year == 18:
             send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "no")
+            send_text_message(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -295,7 +295,7 @@ class TocMachine(GraphMachine):
         if year == 18:
             send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "no")
+            send_text_message(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -317,7 +317,7 @@ class TocMachine(GraphMachine):
         if year == 18:
             send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "no")
+            send_text_message(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
