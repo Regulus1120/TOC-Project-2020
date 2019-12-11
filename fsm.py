@@ -45,7 +45,7 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續")# && ((year == 16) || (year == 17))
+        return (text.lower() == "繼續") and ((year == 16) or (year == 17))
 
     def on_enter_event_16_18(self, event):
         reply_token = event.reply_token
@@ -62,7 +62,7 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續") && (year == 18)
+        return (text.lower() == "繼續") and (year == 18)
 
     def on_enter_kaohsiung(self, event):
         reply_token = event.reply_token
@@ -95,7 +95,7 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續") && ((year == 18) || (year == 19))
+        return (text.lower() == "繼續") and ((year == 18) or (year == 19))
 
     def on_enter_event_18_20_win(self, event):
         reply_token = event.reply_token
@@ -111,7 +111,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
-        return (text.lower() == "繼續") && (year == 20)
+        return (text.lower() == "繼續") and (year == 20)
 
     def on_enter_battle_win(self, event):
         reply_token = event.reply_token
@@ -145,7 +145,7 @@ class TocMachine(GraphMachine):
         f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續") && ((year == 18) || (year == 19))
+        return (text.lower() == "繼續") and ((year == 18) or (year == 19))
 
     def on_enter_event_18_20_lose(self, event):
         reply_token = event.reply_token
@@ -162,7 +162,7 @@ class TocMachine(GraphMachine):
         f = open('gamedata', 'r')
         year = int(f.readline())
         f.close()
-        return (text.lower() == "繼續") && (year == 20)
+        return (text.lower() == "繼續") and (year == 20)
 
     def on_enter_battle_lose(self, event):
         reply_token = event.reply_token
@@ -178,7 +178,7 @@ class TocMachine(GraphMachine):
         blue_people = int(readline())
         blue_rate = int(readline())
         f.close()
-        return (text.lower() == "選舉結果") && ((green_people * green_rate)) > (blue_people * blue_rate)
+        return (text.lower() == "選舉結果") and ((green_people * green_rate)) > (blue_people * blue_rate)
 
 
     def on_enter_result_win(self, event):
@@ -196,7 +196,7 @@ class TocMachine(GraphMachine):
         blue_people = int(readline())
         blue_rate = int(readline())
         f.close()
-        return (text.lower() == "選舉結果") && ((green_people * green_rate)) < (blue_people * blue_rate)
+        return (text.lower() == "選舉結果") and ((green_people * green_rate)) < (blue_people * blue_rate)
 
     def on_enter_result_lose(self, event):
         reply_token = event.reply_token
