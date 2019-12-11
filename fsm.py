@@ -181,13 +181,13 @@ class TocMachine(GraphMachine):
     def is_going_to_result_win(self, event):
         text = event.message.text
         f = open('gamedata.txt', 'r')
-        year = int(readline())
+        year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        return (text.lower() == "選舉結果") and ((green_people * green_rate)) > (blue_people * blue_rate)
+        return (text.lower() == "繼續") and ((green_people * green_rate)) > (blue_people * blue_rate)
 
 
     def on_enter_result_win(self, event):
@@ -199,13 +199,13 @@ class TocMachine(GraphMachine):
     def is_going_to_result_lose(self, event):
         text = event.message.text
         f = open('gamedata.txt', 'r')
-        year = int(readline())
+        year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        return (text.lower() == "選舉結果") and ((green_people * green_rate)) < (blue_people * blue_rate)
+        return (text.lower() == "繼續") and ((green_people * green_rate)) < (blue_people * blue_rate)
 
     def on_enter_result_lose(self, event):
         reply_token = event.reply_token
