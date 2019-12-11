@@ -162,13 +162,13 @@ class TocMachine(GraphMachine):
         year = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "敗選的韓國瑜發表了演說，他的死忠支持者人數逐日攀升，看來是打算")
+            send_text_message(reply_token, "敗選的韓國瑜發表了演說，他的死忠支持者人數逐日攀升，看來是打算趁著這股氣勢和蔡英文角逐總統呢！是否要發動輿論揭發他的醜聞呢？")
         elif year == 19:
-            send_text_message(reply_token, "香港")
+            send_text_message(reply_token, "香港的警民衝突愈加嚴重，是否要在公開場合發表支持香港的言>論呢？")
 
     def is_going_to_battle_lose(self, event):
         text = event.message.text
-        f = open('gamedat.txt', 'r')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         f.close()
         return (text.lower() == "繼續") and (year == 20)
