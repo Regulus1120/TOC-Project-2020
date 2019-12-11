@@ -255,9 +255,9 @@ class TocMachine(GraphMachine):
         blue_people = int(f.readline())
         blue_rate = int(f.readline())
         f.close()
-        if year == 18
+        if year == 18:
             send_text_message(reply_token, "")
-        elif year == 19
+        elif year == 19:
             send_text_gessage(reply_token, "")
         year += 1
 
