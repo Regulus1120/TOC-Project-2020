@@ -11,7 +11,7 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "結束遊戲"
 
-    def on_enter_start
+    def on_enter_start(self, event):
         reply_token = event.reply_token
         send_text_message(reply_token, "輸入 開始遊戲 以開始遊玩")
 
