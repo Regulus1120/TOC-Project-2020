@@ -1,7 +1,7 @@
 import os
 import sys
 
-from flask import Flask, jsonify, request, abort, send_file
+#from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError
@@ -224,7 +224,7 @@ def webhook_handler():
     signature = request.headers["X-Line-Signature"]
     # get request body as text
     body = request.get_data(as_text=True)
-    app.logger.info(f"Request body: {body}")
+    #app.logger.info(f"Request body: {body}")
 
     # parse webhook body
     try:
@@ -240,8 +240,8 @@ def webhook_handler():
             continue
         if not isinstance(event.message.text, str):
             continue
-        print(f"\nFSM STATE: {machine.state}")
-        print(f"REQUEST BODY: \n{body}")
+     #   print(f"\nFSM STATE: {machine.state}")
+     #   print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
         if response == False:
             send_text_message(event.reply_token, "Not Entering any State")

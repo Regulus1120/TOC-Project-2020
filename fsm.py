@@ -188,7 +188,7 @@ class TocMachine(GraphMachine):
     def on_enter_battle_lose(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "選舉開始")
+        send_text_message(reply_token, "2020總統大選正式開始，究竟誰能獲得最後的勝利呢？")
 
     def is_going_to_result_win(self, event):
         text = event.message.text
