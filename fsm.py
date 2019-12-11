@@ -7,6 +7,14 @@ class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
+    def is_going_to_restart(self, event):
+        text = event.message.text
+        return text.lower() == "結束遊戲"
+
+    def on_enter_start
+        reply_token = event.reply_token
+        send_text_message(reply_token, "輸入 開始遊戲 以開始遊玩")
+
     def is_going_to_background(self, event):
         text = event.message.text
         return text.lower() == "開始遊戲"
@@ -33,11 +41,13 @@ class TocMachine(GraphMachine):
     def on_enter_to_16_18(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "西元：      " + f.readline() +
-                                       "綠營支持者：" + f.readline() +
-                                       "綠營投票率：" + f.readline() +
-                                       "藍營支持者：" + f.readline() +
-                                       "藍營投票率：" + f.readline())
+        year = int(f.readline())
+        send_text_message(reply_token, year)
+        # send_text_message(reply_token, "西元：      " + f.readline() +
+        #                               "綠營支持者：" + f.readline() +
+        #                               "綠營投票率：" + f.readline() +
+        #                               "藍營支持者：" + f.readline() +
+        #                               "藍營投票率：" + f.readline())
         f.close()
 
     def is_going_to_event_16_18(self, event):
