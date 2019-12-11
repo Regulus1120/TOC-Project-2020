@@ -41,8 +41,11 @@ class TocMachine(GraphMachine):
 
     def is_going_to_event_16_18(self, event):
         text = event.message.text
+        f = open('gamedata.txt', 'r')
+        year = int(f.readline())
+        f.close()
         return (text.lower() == "繼續") && ((year == 16) || (year == 17))
-    
+
     def on_enter_event_16_18(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
@@ -104,6 +107,9 @@ class TocMachine(GraphMachine):
 
     def is_going_to_battle_win(self, event):
         text = event.message.text
+        reply_token = event.reply_token
+        f = open('gamedata.txt', 'r')
+        year = int(f.readline())
         return (text.lower() == "繼續") && (year == 20)
 
     def on_enter_battle_win(self, event):
