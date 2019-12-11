@@ -83,6 +83,17 @@ class TocMachine(GraphMachine):
 
     def on_enter_fish_win(self, event):
         reply_token = event.reply_token
+        f = open('gamedata.txt', r+)
+        year = int(f.readline())
+        green_people = int(f.readline())
+        green_rate = int(f.readline())
+        blue_people = int(f.readline())
+        blue_rate = int(f.readline())
+        green_people -= 300000
+        green_rate -= 2
+        blue_people += 200000
+        blue_rate += 3
+        f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
         send_text_message(reply_token, "韓國瑜勝選了，這對於整個綠營無疑是個巨大的打擊，除此之外，拿下一個綠營的重要城市，使得藍營的士氣空前地高漲")
 
     def is_going_to_18_20_win(self, event):
@@ -125,6 +136,7 @@ class TocMachine(GraphMachine):
     def on_enter_battle_win(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
+
         send_text_message(reply_token, "2020總統大選正式開始，究竟誰能獲得最後的勝利呢？")
         
     def is_going_to_fish_lose(self, event):
@@ -164,7 +176,7 @@ class TocMachine(GraphMachine):
         if year == 18:
             send_text_message(reply_token, "敗選的韓國瑜發表了演說，他的死忠支持者人數逐日攀升，看來是打算趁著這股氣勢和蔡英文角逐總統呢！是否要發動輿論揭發他的醜聞呢？")
         elif year == 19:
-            send_text_message(reply_token, "香港的警民衝突愈加嚴重，是否要在公開場合發表支持香港的言>論呢？")
+            send_text_message(reply_token, "香港的警民衝突愈加嚴重，是否要在公開場合發表支持香港的言論呢？")
 
     def is_going_to_battle_lose(self, event):
         text = event.message.text
@@ -193,7 +205,7 @@ class TocMachine(GraphMachine):
     def on_enter_result_win(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "勝選")
+        send_text_message(reply_token, "蔡英文成功連任！")
         self.go_back()
         
     def is_going_to_result_lose(self, event):
@@ -210,7 +222,7 @@ class TocMachine(GraphMachine):
     def on_enter_result_lose(self, event):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
-        send_text_message(reply_token, "敗選")
+        send_text_message(reply_token, "韓國瑜勝選，台灣進入黑暗時代！")
         self.go_back()
 
     def is_going_to_yes_event_16_18(self, event):
@@ -227,9 +239,15 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 16:
-            send_text_message(reply_token, "yes")
+            green_people += 400000
+            green_rate += 3
+            blue_people += 100000
+            blue_rate += 1
+            send_text_message(reply_token, "蔡英文政府不顧財團利益，繼續推動一例一休，雖然得罪了財團，卻贏得了民心。")
         elif year == 17:
-            send_text_message(reply_token, "yes")
+            green_people -= 100000
+            green_rate -= 1
+            send_text_message(reply_token, "蔡英文政府向反年改團體妥協，令許多綠營人士相當失望，而反年改團體因本質貪得無厭，並無投靠綠營的趨勢。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -249,9 +267,13 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 16:
-            send_text_message(reply_token, "no")
+            green_people -= 200000
+            green_rate -= 2
+            send_text_message(reply_token, "蔡英文政府向財團妥協，民調開始下滑。")
         elif year == 17:
-            send_text_message(reply_token, "no")
+            green_people += 150000
+            green_rate += 2
+            send_text_message(reply_token, "蔡英文政府持續推動反年改，獲得年輕族群認同。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -271,9 +293,15 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "yes")
+            green_people -= 200000
+            green_rate -= 4
+            send_text_message(reply_token, "蔡英文總統決定和韓國瑜一起請假選總統，不得不說，這實在是個愚蠢的決定。")
         elif year == 19:
-            send_text_message(reply_token, "no")
+            green_people += 300000
+            green_rate += 5
+            blue_people += 100000
+            blue_rate += 2
+            send_text_message(reply_token, "蔡英文總統公開支持香港抗爭，引起藍營人士不滿，卻吸引了更多年輕族群的目光。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -293,9 +321,15 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "yes")
+            green_people += 200000
+            green_rate += 1
+            blue_people -= 100000
+            blue_rate -= 1
+            send_text_message(reply_token, "蔡英文總統公開拒絕了韓國瑜的邀請，並語中帶刺地稍稍反擊了對方。韓國瑜的低能行徑使得部份中間選民選擇靠向綠營。")
         elif year == 19:
-            send_text_message(reply_token, "no")
+            green_people -= 100000
+            green_rate -= 1
+            send_text_message(reply_token, "蔡英文總統拒絕對香港抗爭一事做出正面回應，使得年輕人相當失望。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -315,9 +349,17 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "yes")
+            green_people += 300000
+            green_rate += 3
+            blue_people -= 100000
+            blue_rate += 5
+            send_text_message(reply_token, "愈多愈多媒體開始抨擊韓國瑜，造成其聲望逐漸下降，但其死忠支持者一再生命全國上下都在卡韓，更堅定了他們的決心。")
         elif year == 19:
-            send_text_message(reply_token, "no")
+            green_people += 300000
+            green_rate += 5
+            blue_people += 100000
+            blue_rate += 2
+            send_text_message(reply_token, "蔡英文總統公開支持香港抗爭，引起藍營人士不滿，卻吸引了更>多年輕族群的目光。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -337,9 +379,12 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "yes")
+            blue_people += 200000
+            send_text_message(reply_token, "韓國瑜的聲望愈加高漲。")
         elif year == 19:
-            send_text_gessage(reply_token, "no")
+            green_people -= 100000
+            green_rate -= 1
+            send_text_gessage(reply_token, "蔡英文總統拒絕對香港抗爭一事做出正面回應，使得年輕人相當>失望。")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
