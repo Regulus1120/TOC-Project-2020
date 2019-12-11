@@ -14,24 +14,149 @@ load_dotenv()
 
 
 machine = TocMachine(
-	#for test4
-    states=["user", "state1", "state2"],
+    states=[
+        "start", "description", "background", "16_18", "kaohsiung", 
+        "18_20_win", "battle_win", "fish_win",
+        "18_20_lose", "battle_lose", "fish_lose",
+        1"event_16_18", "event_18_20_win", "event_18_20_lose",
+        "result_win", "result_lose","yes_event_16_18", "no_event_16_18",
+        "yes_event_18_20_win", "no_event_18_20_win",
+        "yes_event_18_20_lose", "no_event_18_20_lose"
+    ],
     transitions=[
         {
             "trigger": "advance",
-            "source": "user",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
+            "source": ["start", "description"],
+            "dest": "background",
+            "conditions": "is_going_to_background",
         },
         {
             "trigger": "advance",
-            "source": "user",
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
+            "source": "start",
+            "dest": "description",
+            "conditions": "is_going_to_description",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
+        {
+            "trigger": "advance",
+            "source": ["background", "yes_event_16_18", "no_event_16_18"],
+            "dest": "16_18",
+            "conditions": "is_going_to_16_18",
+        },
+        {   
+            "trigger": "advance",
+            "source": "16_18",
+            "dest": "event_16_18",
+            "conditions": "is_going_to_event_16_18",
+        },
+        {
+            "trigger": "advance",
+            "source": "16_18",
+            "dest": "kaohsiung",
+            "conditions": "is_going_to_kaohsiung",
+        },
+        {        
+            "trigger": "advance",
+            "source": "kaohsiung",
+            "dest": "fish_win",
+            "conditions": "is_going_to_fish_win",
+        },
+        {        
+            "trigger": "advance",
+            "source": "18_20_win",
+            "dest": "event_18_20_win",
+            "conditions": "is_going_to_event_18_20_win",
+        },
+        {        
+            "trigger": "advance",
+            "source": ["fish_win", "yes_event_18_20_win", "no_event_18_20_win"],
+            "dest": "18_20_win",
+            "conditions": "is_going_to_18_20_win",
+        },
+        {        
+            "trigger": "advance",
+            "source": "18_20_win",
+            "dest": "battle_win",
+            "conditions": "is_going_to_battle_win",
+        },
+        {
+            "trigger": "advance",
+            "source": "kaohsiung",
+            "dest": "fish_lose",
+            "conditions": "is_going_to_fish_lose",
+        },
+        {
+            "trigger": "advance",
+            "source": "18_20_lose",
+            "dest": "event_18_20_lose",
+            "conditions": "is_going_to_event_18_20_lose",
+        },
+        {
+            "trigger": "advance",
+            "source": ["fish_lose", "yes_event_18_20_lose", "no_event_18_20_lose"],
+            "dest": "18_20_lose",
+            "conditions": "is_going_to_18_20_lose",
+        },
+        {
+            "trigger": "advance",
+            "source": "18_20_lose",
+            "dest": "battle_lose",
+            "conditions": "is_going_to_battle_lose",
+        },
+        {
+            "trigger": "advance",
+            "source": ["battle_win", "battle_lose"],
+            "dest": "result_win",
+            "conditions": "is_going_to_result_win"
+        },
+        {
+            "trigger": "advance",
+            "source": ["battle_win", "battle_lose"],
+            "dest": "result_lose",
+            "conditions": "is_going_to_result_lose"
+        },
+        {
+            "trigger": "go_back",
+            "source": ["result_win", "result_lose"],
+            "dest": "start"
+        },
+        {
+            "trigger": "advance",
+            "source": "event_16_18",
+            "dest": "yes_event_16_18",
+            "conditions": "is_going_to_yes_event_16_18",
+        },
+        {
+            "trigger": "advance",
+            "source": "event_16_18",
+            "dest": "no_event_16_18",
+            "conditions": "is_going_to_no_event_16_18",
+        },
+        {
+            "trigger": "advance",
+            "source": "event_18_20_win",
+            "dest": "yes_event_18_20_win",
+            "conditions": "is_going_to_yes_event_18_20_win",
+        },
+        {
+            "trigger": "advance",
+            "source": "event_18_20_win",
+            "dest": "no_event_18_20_win",
+            "conditions": "is_going_to_no_event_18_20_win",
+        },
+        {
+            "trigger": "advance",
+            "source": "event_18_20_lose",
+            "dest": "yes_event_18_20_lose",
+            "conditions": "is_going_to_yes_event_18_20_lose",
+        },
+        {
+            "trigger": "advance",
+            "source": "event_18_20_lose",
+            "dest": "no_event_18_20_lose",
+            "conditions": "is_going_to_no_event_18_20_lose",
+        },
     ],
-    initial="user",
+    initial="start",
     auto_transitions=False,
     show_conditions=True,
 )
