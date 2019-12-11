@@ -83,7 +83,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_fish_win(self, event):
         reply_token = event.reply_token
-        send_text_message(reply_token, "韓國瑜勝選")
+        send_text_message(reply_token, "韓國瑜勝選了，這對於整個綠營無疑是個巨大的打擊，除此之外，拿下一個綠營的重要城市，使得藍營的士氣空前地高漲")
 
     def is_going_to_18_20_win(self, event):
         text = event.message.text
@@ -238,11 +238,10 @@ class TocMachine(GraphMachine):
     def is_going_to_no_event_16_18(self, event):
         text = event.message.text
         return text.lower() == "否"
-
     
     def on_enter_no_event_16_18(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
@@ -250,9 +249,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 16:
-            send_text_message(reply_token, "yes")
+            send_text_message(reply_token, "no")
         elif year == 17:
-            send_text_gessage(reply_token, "yes")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'w')
         f.write(str(year) + "\n" + str(green_people) + "\n" + str(green_rate) + "\n" + str(blue_people) + "\n" + str(blue_rate))
@@ -264,7 +263,7 @@ class TocMachine(GraphMachine):
         
     def on_enter_yes_event_18_20_win(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
@@ -286,7 +285,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_no_event_18_20_win(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
@@ -308,7 +307,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_yes_event_18_20_lose(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
@@ -330,7 +329,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_no_event_18_20_lose(self, event):
         reply_token = event.reply_token
-        f = open('gamedata.txt', 'w')
+        f = open('gamedata.txt', 'r')
         year = int(f.readline())
         green_people = int(f.readline())
         green_rate = int(f.readline())
