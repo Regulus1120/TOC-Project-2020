@@ -227,9 +227,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 16:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 17:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
@@ -253,9 +253,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 16:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 17:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
@@ -279,9 +279,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
@@ -305,9 +305,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
@@ -331,9 +331,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
@@ -357,9 +357,9 @@ class TocMachine(GraphMachine):
         blue_rate = int(f.readline())
         f.close()
         if year == 18:
-            send_text_message(reply_token, "")
+            send_text_message(reply_token, "yes")
         elif year == 19:
-            send_text_gessage(reply_token, "")
+            send_text_gessage(reply_token, "no")
         year += 1
         f = open('gamedata.txt', 'r')
         f.writeline(year)
