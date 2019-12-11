@@ -42,7 +42,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         f = open('gamedata.txt', 'r')
         year = f.readline()
-        send_text_message(reply_token, year)
+        send_text_message(reply_token, str(year))
         # send_text_message(reply_token, "西元：      " + f.readline() +
         #                               "綠營支持者：" + f.readline() +
         #                               "綠營投票率：" + f.readline() +
